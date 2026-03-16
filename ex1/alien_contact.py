@@ -39,14 +39,14 @@ def main() -> None:
         print("======================================")
         print("Valid contact report:")
         report: AlienContact = AlienContact(
-            contact_id = "AC_2024_001",
-            timestamp = datetime.now(),
-            location = "Area 51, Nevada",
-            contact_type = "radio",
-            signal_strength = 8.5,
-            duration_minutes = 45,
-            witness_received = 5,
-            message_received = "'Greetings from Zeta Reticuli'"
+            contact_id="AC_2024_001",
+            timestamp=datetime.now(),
+            location="Area 51, Nevada",
+            contact_type="radio",
+            signal_strength=8.5,
+            duration_minutes=45,
+            witness_received=5,
+            message_received="'Greetings from Zeta Reticuli'"
         )
         print(f"ID: {report.contact_id}")
         print(f"Type: {report.contact_type.value}")
@@ -59,14 +59,14 @@ def main() -> None:
         print("======================================")
         print("Expected validation error:")
         AlienContact(
-            contact_id = "AC_2024_002",
-            timestamp = datetime.now(),
-            location = "Area 51, Nevada",
-            contact_type = "telepathic",
-            signal_strength = 8.5,
-            duration_minutes = 45,
-            witness_received = 2,
-            message_received = "Greetings from Zeta Reticuli"
+            contact_id="AC_2024_002",
+            timestamp=datetime.now(),
+            location="Area 51, Nevada",
+            contact_type="telepathic",
+            signal_strength=8.5,
+            duration_minutes=45,
+            witness_received=2,
+            message_received="Greetings from Zeta Reticuli"
         )
     except ValidationError as error:
         print(error)

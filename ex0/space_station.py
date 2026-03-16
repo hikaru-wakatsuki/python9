@@ -20,12 +20,12 @@ def main() -> None:
         print("========================================")
         print("Valid station created:")
         station: SpaceStation = SpaceStation(
-            station_id = "ISS001",
-            name = "International Space Station",
-            crew_size = 6,
-            power_level = 85.5,
-            oxygen_level = 92.3,
-            last_maintenance = datetime.now(),
+            station_id="ISS001",
+            name="International Space Station",
+            crew_size=6,
+            power_level=85.5,
+            oxygen_level=92.3,
+            last_maintenance=datetime.now(),
         )
         print(f"ID: {station.station_id}")
         print(f"Name: {station.name}")
@@ -37,12 +37,12 @@ def main() -> None:
         print("========================================")
         print("Expected validation error:")
         SpaceStation(
-            station_id = "ISS002",
-            name = "International Space Station2",
-            crew_size = 21,
-            power_level = 85.5,
-            oxygen_level = 92.3,
-            last_maintenance = datetime.now(),
+            station_id="ISS002",
+            name="International Space Station2",
+            crew_size=21,
+            power_level=85.5,
+            oxygen_level=92.3,
+            last_maintenance=datetime.now(),
         )
     except ValidationError as error:
         print(error)
