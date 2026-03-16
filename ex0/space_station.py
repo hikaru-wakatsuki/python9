@@ -32,7 +32,9 @@ def main() -> None:
         print(f"Crew: {station.crew_size} pepple")
         print(f"Power: {station.power_level}%")
         print(f"Oxygen: {station.oxygen_level}%")
-        print(f"Status: {'Operational' if station.is_operational else 'Not Operational'}")
+        status: str
+        status = 'Operational' if station.is_operational else 'Not Operational'
+        print(f"Status: {status}")
         print()
         print("========================================")
         print("Expected validation error:")
