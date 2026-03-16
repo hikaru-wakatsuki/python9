@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field, model_validator, ValidationError
 from datetime import datetime
 from typing import Optional
 
+
 class ContactType(Enum):
     RADIO = "radio"
     VISUAL = "visual"
@@ -27,11 +28,15 @@ class AlienContact(BaseModel):
             raise ValueError("Contact ID must start with 'AC'")
         if self.contact_type == ContactType.PHYSICAL and not self.is_verified:
             raise ValueError("Physical contact reports must be verified")
-        if self.contact_type == ContactType.TELEPATHIC and self.witness_received < 3:
-            raise ValueError("Telepathic contact requires at least 3 witnesses")
+        if self.contact_type == ContactType.TELEPATHIC:
+            if self.witness_received < 3:
+                raise ValueError(
+                    "Telepathic contact requires at least 3 witnesses")
         if self.signal_strength > 7.0 and not self.message_received:
-            raise ValueError("Strong signals (>7.0) must include a received message")
+            raise ValueError(
+                "Strong signals (>7.0) must include a received message")
         return self
+
 
 def main() -> None:
     try:
